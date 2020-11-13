@@ -1,1 +1,3 @@
-nextcloud.occ user:list | sed 's/.*- \(.*\):.*/\1/' | xargs -l -i nextcloud.occ notification:generate {} "Wartung am 10.11.2020" -l "Zwischen 21 und 23 Uhr wird das Nextcloud gewartet und es kann eventuell zu Dienstausfällen kommen. Bitte vorher alle Dokumente speichern und schließen."
+echo -n "enter message: "
+read message
+nextcloud.occ user:list | sed 's/.*- \(.*\):.*/\1/' | xargs -l -i nextcloud.occ notification:generate {} $message
